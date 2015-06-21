@@ -1,5 +1,5 @@
 ﻿##RUNNING THE SCRIPT
-The script is intended to be run with the UCI HAR Dataset folder created from unzipped the data as your working directory. The script relies on the dplyr package and tidyr packages. 
+The script is intended to be run with the UCI HAR Dataset folder created from the unzipped data as your working directory. The script relies on the dplyr package and tidyr packages. 
 ##PROCESSING OF RAW DATA
 In order to construct a data frame from the dispersed data, the script will read all the text files into R using the read.table() function. In addition to the accelerometer data in the test and train folders the variable names and activities are read from features.txt and activity_labels.txt. They are transferred to character vectors so they could be used later in providing descriptive names.
 The script next creates two data frames, one containing the test data (testtotal) and the other the train data (traintotal). The cbind() function is used to accomplish this. The subject ID values are put in the first column, the data corresponding to the activities in the second column, and all of the measurements in the X_test or X_train files comprise the rest of the data frame. 
