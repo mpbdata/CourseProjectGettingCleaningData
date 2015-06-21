@@ -87,10 +87,10 @@ This measurement is normalized and bounded within [1,-1]. The units of this meas
 This is the average value of the means of the magnitude of the three-dimensional body acceleration signal calculated from the original gyroscope raw data. 
 This measurement is normalized and bounded within [1,-1]. The units of this measurement are in radians per second.
 This is a time domain signal that was captured at a constant rate of 50 Hz, filtered using a median filter and a 3rd order low pass Butterworth filter with a corner frequency of 20 Hz to remove noise. It was separated into body and gravity signals using a low pass Butterworth filter with a corner frequency of 0.3 Hz. The magnitude was calculated by the Euclidean norm.
-#####22.	Body Gyroscope Time Domain Jerk Signal Magnitude Mean 
+#####22. Body Gyroscope Time Domain Jerk Signal Magnitude Mean 
 This variable is the average value of the means of the magnitude of the three-dimensional Jerk Signal derived with respect to time from the body angular velocity as measured by the gyroscope. The magnitude was calculated by the Euclidean norm.
 This measurement is normalized and bounded within [1,-1]. The units of this measurement are in radians per second per second.
-#####23.	Body Accelerometer FFT Mean X-axis 
+#####23. Body Accelerometer FFT Mean X-axis 
 This variable is the average value of the means of the fast Fourier transform (FFT) applied to the X-axis component of the body acceleration signal calculated from the original accelerometer raw data.  
 This measurement is normalized and bounded within [1,-1]. The units of this measurement are in standard gravity units (g). 
 ####24.	Body Accelerometer FFT Mean Y-axis 
