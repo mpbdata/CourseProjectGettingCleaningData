@@ -21,10 +21,10 @@ library(tidyr)
     totaldata<- rbind(testtotal,traintotal) ##combines the two data sets to complete requirement 1
     
     ##Requirement 1 complete. 
-    variables<-gsub("mean()", "MEANKEEP", variables)
+    variables<-gsub("mean()", "MEANKEEP", variables) ##Changing the names so the means and standard deviations can be sorted after make.names() is applied
     variables<-gsub("std()", "STDKEEP", variables)
     variables<-make.names(varlabel, unique=TRUE)##making the variable titles into valid names for later selection
-    colnames(totaldata)<-variables
+    colnames(totaldata)<-variables##changes the column names of totaldata
     totaldata<-arrange(totaldata,Subject, Activity)  ##rearranges things by subject, then activity
     totaldata$Activity<-factor(totaldata$Activity, labels=actlabel) ##changing Activity column from integer to factor variable with the activity labels completing requirement 2
     desireddata<-select(totaldata, Subject, Activity, contains("MEANKEEP"), contains("STDKEEP"), -contains("Freq")) ##selects out the mean and standard deviation for each measurement completing requirement 3
@@ -51,7 +51,6 @@ library(tidyr)
     variables<-gsub("Mag", "Magnitude ", variables)
     variables<-gsub("\\.","", variables)
     colnames(desireddata)<-variables ##assigns the new names to the data frame
-    ##removes erroneous data, that containing BodyBody which is not explained in features_info.txt
     ##Requirement 4 complete
     
     aveactivity<-group_by(desireddata, Subject, Activity) %>% summarise_each(funs(mean))##Organizing the data first by subject then by activity, then calculating the average for each acivity and each subject completing requirement 5
