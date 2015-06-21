@@ -2,7 +2,7 @@
 This tidy data set was created to complete the course project for the “Gathering and Cleaning Data” class for the John Hopkin’s Data Science Coursera Signature Track. The goal was to create a tidy data set of the averages of the mean and standard deviations of accelerometer data provided by the University of California Irving. 
 
 #DATA SOURCE:
-The raw data from this was gathered from experiments carried out by University of California Irving with a group of 30 volunteers within an age bracket of 19-48 years. Each person performed six activities (walking, walking upstairs, walking down stairs, sitting, standing, and laying down) wearing a Samsung Galaxy S II on the waist. This phone had an embedded accelerometer and gyroscope which was used to capture  3-axial linear acceleration and 3-axial angular velocity at a constant rate of 50Hz.. The obtained dataset was randomly partitioned into two sets, where 70% of the volunteers were selected for generating the training data and 30% the test data. 
+The raw data from this was gathered from experiments carried out by University of California Irving with a group of 30 volunteers within an age bracket of 19-48 years. Each person performed six activities (walking, walking upstairs, walking down stairs, sitting, standing, and laying down) wearing a Samsung Galaxy S II on the waist. This phone had an embedded accelerometer and gyroscope which was used to capture  3-axial linear acceleration and 3-axial angular velocity at a constant rate of 50Hz. The obtained dataset was randomly partitioned into two sets, where 70% of the volunteers were selected for generating the training data and 30% the test data. 
 Based on the README file included describing the experiment, the sensor signals (accelerometer and gyroscope) were pre-processed by applying noise filters and then sampled in fixed-width sliding windows of 2.56 sec and 50% overlap (128 readings/window). The sensor acceleration signal, was separated using a Butterworth low-pass filter into body and gravitational motion components. This changed the numeric label in the original file with the activity description it corresponded too. The gravitational force is assumed to have only low frequency components, therefore a filter with 0.3 Hz cutoff frequency was used. From each window, a vector of features was obtained by calculating variables from the time and frequency domain.
 
 #RAW DATA FORMAT
@@ -10,7 +10,7 @@ The data was originally stored in a group of tab delimited text files. The data 
 Information regarding the measurements was provided by features_info.txt, while features.txt provided a list of all features. The file activity_labels.txt explained which numbers in the y files corresponded to which activity. 
 
 #TIDY DATA FORMAT
-To create the tidy data set the raw data was combined into a single data frame in R. Functions from the dplyr and tidyr packages were then used to organize the data by subject and activity, select the variables corresponding to measurements of the mean and standard deviation of a variable, and then calculate the average of those values. This creates a tidy data set that can be used for further analysis.
+To create the tidy data set the raw data was combined into a single data frame in R. Functions from the dplyr and tidyr packages were then used to organize the data by subject and activity, select the variables corresponding to the means and standard deviations of a measurement, and then calculate the average of those values. This creates a tidy data set that can be used for further analysis.
 
 The data set has one observation per row, one variable per column, and is organized by one observational unit, the combination of subject and activity. Each variable past the first two columns is the average of a series of measurements recorded in the raw data for each subject performing a specific activity. Descriptions of the variables in the tidy data set are provided below. 
 
@@ -19,7 +19,7 @@ The data set has one observation per row, one variable per column, and is organi
 #####1.	Subject#####
 The numeric designation assigned to the subject. There were 30 subjects total so this value ranges from 1 to 30. 
 #####2.	Activity#####
-The activity the subject was performing when the data was obtained. There are 6 possible activities, Walking, Walking Upstairs, Walking Downstairs, Sitting, Standing, and Laying Down. 
+The activity the subject was performing when the data was obtained. There are 6 possible activities, Walking, Walking Upstairs, Walking Downstairs, Sitting, Standing, and Laying. 
 #####3.	Body Accelerometer Time Domain Mean X-axis  
 This is the average value of the means of the X-axis component of the body acceleration signal calculated from the original accelerometer raw data. 
 This measurement is normalized and bounded within [1,-1]. The units of this measurement are in standard gravity units (g). 
@@ -86,7 +86,7 @@ This is a time domain signal that was captured at a constant rate of 50 Hz, filt
 This variable is the average value of the means of the magnitude of the three-dimensional Jerk Signal derived with respect to time from the body linear acceleration as measured by the accelerometer. The magnitude was calculated by the Euclidean norm.
 This measurement is normalized and bounded within [1,-1]. The units of this measurement are in standard gravity units (g) per second (g/sec).
 #####21.	Body Gyroscope Time Domain Magnitude Mean  
-This is the average value of the means of the magnitude of the three-dimensional body acceleration signal calculated from the original gyroscope raw data. 
+This is the average value of the means of the magnitude of the three-dimensional body angular velocity calculated from the original gyroscope raw data. 
 This measurement is normalized and bounded within [1,-1]. The units of this measurement are in radians per second.
 This is a time domain signal that was captured at a constant rate of 50 Hz, filtered using a median filter and a 3rd order low pass Butterworth filter with a corner frequency of 20 Hz to remove noise. It was separated into body and gravity signals using a low pass Butterworth filter with a corner frequency of 0.3 Hz. The magnitude was calculated by the Euclidean norm.
 #####22. Body Gyroscope Time Domain Jerk Signal Magnitude Mean  
@@ -194,7 +194,7 @@ This is a time domain signal that was captured at a constant rate of 50 Hz, filt
 This variable is the average value of the standard deviation of the magnitude of the three-dimensional Jerk Signal derived with respect to time from the body linear acceleration as measured by the accelerometer. The magnitude was calculated by the Euclidean norm.
 This measurement is normalized and bounded within [1,-1]. The units of this measurement are in standard gravity units (g) per second (g/sec).
 #####54.	Body Gyroscope Time Domain Magnitude Standard Deviation  #####
-This is the average value of the standard deviation of the magnitude of the three-dimensional body acceleration signal calculated from the original gyroscope raw data. 
+This is the average value of the standard deviation of the magnitude of the three-dimensional body angular velocity calculated from the original gyroscope raw data. 
 This measurement is normalized and bounded within [1,-1]. The units of this measurement are in radians per second.
 This is a time domain signal that was captured at a constant rate of 50 Hz, filtered using a median filter and a 3rd order low pass Butterworth filter with a corner frequency of 20 Hz to remove noise. It was separated into body and gravity signals using a low pass Butterworth filter with a corner frequency of 0.3 Hz. The magnitude was calculated by the Euclidean norm.
 #####55.	Body Gyroscope Time Domain Jerk Signal Magnitude Standard Deviation  #####
