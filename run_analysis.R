@@ -23,14 +23,14 @@ library(tidyr)
     ##Requirement 1 complete. 
     variables<-gsub("mean()", "MEANKEEP", variables) ##Changing the names so the means and standard deviations can be sorted after make.names() is applied
     variables<-gsub("std()", "STDKEEP", variables)
-    variables<-make.names(varlabel, unique=TRUE)##making the variable titles into valid names for later selection
+    variables<-make.names(variables, unique=TRUE)##making the variable titles into valid names for later selection
     colnames(totaldata)<-variables##changes the column names of totaldata
     totaldata<-arrange(totaldata,Subject, Activity)  ##rearranges things by subject, then activity
     totaldata$Activity<-factor(totaldata$Activity, labels=actlabel) ##changing Activity column from integer to factor variable with the activity labels completing requirement 2
     desireddata<-select(totaldata, Subject, Activity, contains("MEANKEEP"), contains("STDKEEP"), -contains("Freq")) ##selects out the mean and standard deviation for each measurement completing requirement 3
     
     ## Requirements 2 & 3 complete
-    varlabel<-names(desireddata) ##collecting the names of the current variables in the data set
+    variables<-names(desireddata) ##collecting the names of the current variables in the data set
     ## The following commands are intended to create descriptive variable names from the original variable names
     variables<-gsub("X", 'X-axis', variables)
     variables<-gsub("Y", 'Y-axis', variables)
@@ -45,7 +45,7 @@ library(tidyr)
     variables<-gsub("fBodyGyro", "Body Gyroscope FFT ", variables)
     variables<-gsub("fBodyBodyGyro", "Body Gyroscope FFT ", variables)
     variables<-gsub("fGravityAcc", "Gravity Gyroscope FFT ", variables)
-    variables<-gsub(".MEANKEEP", 'Mean ', varlabel)
+    variables<-gsub(".MEANKEEP", 'Mean ', variables)
     variables<-gsub(".STDKEEP", "Standard Deviation ", variables)
     variables<-gsub("Jerk", "Jerk Signal ", variables)
     variables<-gsub("Mag", "Magnitude ", variables)
