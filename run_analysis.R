@@ -27,7 +27,7 @@ library(tidyr)
     colnames(totaldata)<-variables##changes the column names of totaldata
     totaldata<-arrange(totaldata,Subject, Activity)  ##rearranges things by subject, then activity
     totaldata$Activity<-factor(totaldata$Activity, labels=actlabel) ##changing Activity column from integer to factor variable with the activity labels completing requirement 2
-    desireddata<-select(totaldata, Subject, Activity, contains("MEANKEEP"), contains("STDKEEP"), -contains("Freq")) ##selects out the mean and standard deviation for each measurement completing requirement 3
+    desireddata<-select(totaldata, Subject, Activity, contains("MEANKEEP"), contains("STDKEEP"), -contains("Freq")) ##selects out the mean and standard deviation for each measurement completing requirement 3. Removes the frequency variables as these are not mean or standard deviations.
     
     ## Requirements 2 & 3 complete
     variables<-names(desireddata) ##collecting the names of the current variables in the data set
@@ -54,7 +54,6 @@ library(tidyr)
     ##Requirement 4 complete
     
     aveactivity<-group_by(desireddata, Subject, Activity) %>% summarise_each(funs(mean))##Organizing the data first by subject then by activity, then calculating the average for each acivity and each subject completing requirement 5
-    ## Requirement 5 complete. Each variable has its own column, each different observation is on one row, there is one observational variable (subject)
-##
-    write.table(aveactivity, "tidy_accelerometer_data.txt", row.name=FALSE)
+    ## Requirement 5 complete. Each variable has its own column, each different observation is on one row, there is one observational unit (subject + activity)
+    write.table(aveactivity, "tidy_accelerometer_data.txt", row.name=FALSE) ##Tidy data file is outputted. 
     
