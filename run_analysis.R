@@ -17,7 +17,7 @@ library(tidyr)
     colnames(testtotal)<-variables ##labeling the columns in test data
     colnames(traintotal)<-variables ##labeling the columns in train data
     testtotal<-tbl_df(testtotal) ##converting to tbl so dplyr can be used
-    traintotal<-tbl_df(traintotal) ##converting to tbl do dplyr can be used
+    traintotal<-tbl_df(traintotal) ##converting to tbl so dplyr can be used
     totaldata<- rbind(testtotal,traintotal) ##combines the two data sets to complete requirement 1
     
     ##Requirement 1 complete. 
